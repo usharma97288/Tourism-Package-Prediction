@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: pip install -r Tourism-Package-Prediction/deployment/requirements.txt
+        run: pip install -r deployment/requirements.txt
       - name: Upload Dataset to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python Tourism-Package-Prediction/model_building/data_register.py
+        run: python model_building/data_register.py
 
   data-prep:
     needs: register-dataset
@@ -24,11 +24,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: pip install -r Tourism-Package-Prediction/deployment/requirements.txt
+        run: pip install -r deployment/requirements.txt
       - name: Run Data Preparation
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python Tourism-Package-Prediction/model_building/prep.py
+        run: python model_building/prep.py
 
 
   model-training:
@@ -37,11 +37,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: pip install -r Tourism-Package-Prediction/deployment/requirements.txt
+        run: pip install -r deployment/requirements.txt
       - name: Model Training and Evaluation
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python Tourism-Package-Prediction/model_building/train.py
+        run: python model_building/train.py
 
 
   deploy-app:
@@ -50,8 +50,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: pip install -r Tourism-Package-Prediction/deployment/requirements.txt
+        run: pip install -r deployment/requirements.txt
       - name: Push Streamlit App to Hugging Face Space
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python Tourism-Package-Prediction/hosting/hosting.py
+        run: python hosting/hosting.py

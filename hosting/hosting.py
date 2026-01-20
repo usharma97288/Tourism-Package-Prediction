@@ -14,7 +14,7 @@ print(
 
 api.upload_folder(
     folder_path=str(deployment_dir),
-    repo_id="usharma97288/Tourism-Package-Prediction-App",
+    repo_id="usharma97288/Tourism-Package-Prediction-Prj",
     repo_type="space",
     path_in_repo="",
     commit_message="Deploying Streamlit app for Tourism Package Prediction"

@@ -9,7 +9,7 @@ deployment_dir = Path(__file__).resolve().parent.parent / "deployment"
 
 print(
     f"Uploading folder {deployment_dir} "
-    f"to Hugging Face Space: usharma97288/Tourism-Package-Prediction-App"
+    f"to Hugging Face Space: usharma97288/Tourism-Package-Prediction-Prj"
 )
 
 api.upload_folder(

@@ -9,7 +9,7 @@ import numpy as np
 # --- Configuration ---
 #HF_MODEL_REPO_ID = "usharma97288/Tourism-Package-Prediction-Prj"
 HF_MODEL_REPO_ID = "usharma97288/Tourism-Package-Prediction-Model"
-HF_MODEL_FILENAME = "tourism_xgb_model.joblib"
+HF_MODEL_FILENAME = "tourism_xgb_model_grid_search.joblib"
 
 # --- Hardcoded Scaler Parameters and Feature Order (from training) ---
 SCALER_MEANS = [37.231831395348834, 1.6632751937984496, 15.584786821705427, 2.9493701550387597, 3.7415213178294575, 3.578488372093023, 3.295300387596899, 0.29530038759689925, 3.0608042635658914, 0.6121608527131783, 1.22359496124031, 0.9840116279069767, 23178.46414728682, 4.1729651162790695, 1.0133236434108528, 1.0]

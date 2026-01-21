@@ -7,7 +7,8 @@ from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 import numpy as np
 
 # --- Configuration ---
-HF_MODEL_REPO_ID = "usharma97288/Tourism-Package-Prediction-Prj"
+#HF_MODEL_REPO_ID = "usharma97288/Tourism-Package-Prediction-Prj"
+HF_MODEL_REPO_ID = "usharma97288/Tourism-Package-Prediction-Model"
 HF_MODEL_FILENAME = "models/tourism_xgb_model.joblib"
 
 # --- Hardcoded Scaler Parameters and Feature Order (from training) ---

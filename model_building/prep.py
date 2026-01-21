@@ -1,6 +1,8 @@
 # for data manipulation
 import pandas as pd
 import numpy as np
+import joblib
+
 # for creating a folder
 import os
 # for data preprocessing and pipeline creation
@@ -176,4 +178,19 @@ for filename, data in output_files.items():
     except Exception as e:
         print(f"Error uploading '{filename}' to Hugging Face: {e}")
 
-print("All preprocessing steps completed and files uploaded.")
+FEATURE_COLUMNS = X_train.columns.tolist()
+joblib.dump(FEATURE_COLUMNS, "feature_columns.joblib")
+
+try:
+    api.upload_file(
+        path_or_fileobj="feature_columns.joblib",
+        path_in_repo="feature_columns.joblib",
+        repo_id=repo_id,
+        repo_type="dataset",
+        commit_message="Upload feature schema"
+    )
+    print("Successfully uploaded feature_columns.joblib to Hugging Face.")
+except Exception as e:
+    print(f"Error uploading feature_columns.joblib: {e}")
+
+print("All data processing and upload completed.")

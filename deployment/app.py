@@ -48,7 +48,13 @@ def preprocess_input(input_df):
       labels=['18-30', '31-45', '46-60', '60+'],
       right=False
     )
-    df['IncomeGroup'] = pd.qcut(df['MonthlyIncome'], q=3, labels=['Low', 'Medium', 'High'])
+    #df['IncomeGroup'] = pd.qcut(df['MonthlyIncome'], q=3, labels=['Low', 'Medium', 'High'])
+    df['IncomeGroup'] = pd.cut(
+      df['MonthlyIncome'],
+      bins=[0, 25000, 50000, np.inf],
+      labels=['Low', 'Medium', 'High'],
+      right=False
+    )
 
     # Convert bool to int (Passport, OwnCar)
     for col in ['Passport', 'OwnCar']:

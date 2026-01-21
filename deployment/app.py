@@ -41,7 +41,13 @@ def preprocess_input(input_df):
 
     # Feature Engineering
     df['TotalVisitors'] = df['NumberOfPersonVisiting'] + df['NumberOfChildrenVisiting']
-    df['AgeGroup'] = pd.cut(df['Age'], bins=[18, 30, 45, 60, df['Age'].max()], labels=['18-30', '31-45', '46-60', '60+'], right=False)
+    # df['AgeGroup'] = pd.cut(df['Age'], bins=[18, 30, 45, 60, df['Age'].max()], labels=['18-30', '31-45', '46-60', '60+'], right=False)
+    df['AgeGroup'] = pd.cut(
+      df['Age'],
+      bins=[18, 30, 45, 60, np.inf],
+      labels=['18-30', '31-45', '46-60', '60+'],
+      right=False
+    )
     df['IncomeGroup'] = pd.qcut(df['MonthlyIncome'], q=3, labels=['Low', 'Medium', 'High'])
 
     # Convert bool to int (Passport, OwnCar)
